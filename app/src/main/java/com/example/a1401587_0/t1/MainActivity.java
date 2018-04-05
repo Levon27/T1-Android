@@ -26,6 +26,14 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btnAlarme)
+    public void Alarme(){
+        Intent intent = new Intent(this,AlarmeActivity.class);
+        startActivity(intent);
+    }
+
+
+
     private void debug(String s){
         Toast.makeText(getApplicationContext(),
                 s,

@@ -24,6 +24,8 @@
         android:layout_gravity="fill"
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
+        android:text="Alarme"
+        android:id="@+id/btnAlarme"
         />
     <Button
         android:layout_height="wrap_content"
