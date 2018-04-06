@@ -32,7 +32,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-
+    @OnClick(R.id.btnSMS)
+    public void Sms(){
+        Intent intent = new Intent(this,MensagemActivity.class);
+        startActivity(intent);
+    }
 
     private void debug(String s){
         Toast.makeText(getApplicationContext(),

@@ -1,85 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.a1401587_0.t1.MainActivity"
     android:orientation="horizontal"
-    android:rowCount="5"
-    android:columnCount="2">
+   >
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Telefone"
+            android:id="@+id/btnTelefone"
+            android:layout_weight="1"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Alarme"
+            android:id="@+id/btnAlarme"
+            android:layout_weight="1"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+             />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+             />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:text="Enviar SMS"
+            android:id="@+id/btnSMS"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            />
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            />
 
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:text="Telefone"
-        android:id="@+id/btnTelefone"
-        />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:text="Alarme"
-        android:id="@+id/btnAlarme"
-        />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1" />
-    <Button
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        android:layout_rowWeight="1"
-        android:text="Dank Memes"
-        android:id="@+id/btnMemes"/>
-
-
-
-
-
-</GridLayout>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="Dank Memes"
+            android:id="@+id/btnMemes"
+            android:layout_weight="1"
+            />
+    </LinearLayout>
+</LinearLayout>
