@@ -22,7 +22,8 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".MensagemActivity" />
         <activity android:name=".AlarmeActivity" />
-        <activity android:name=".MapaActivity"></activity>
+        <activity android:name=".MapaActivity" />
+        <activity android:name=".GoletaActivity"></activity>
     </application>
 
 </manifest>

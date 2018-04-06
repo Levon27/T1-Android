@@ -40,7 +40,17 @@ public class MainActivity extends Activity {
 
     @OnClick (R.id.btnMapa)
     public void Mapa(){
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse("geo:47.6,-122.3?z=11"));
+            if (intent.resolveActivity(getPackageManager()) != null) {
+                startActivity(intent);
+            }
 
+    }
+
+    @OnClick(R.id.btnGoleta)
+    public void goleta(){
+        //Intent intent = new Intent(this,);
     }
     public void debug(String s){
         Toast.makeText(getApplicationContext(),
