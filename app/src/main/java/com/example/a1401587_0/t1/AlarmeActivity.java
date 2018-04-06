@@ -26,7 +26,8 @@ public class AlarmeActivity extends Activity {
     public void Define(){
         Intent intent = new Intent(AlarmClock.ACTION_SET_ALARM).putExtra(AlarmClock.EXTRA_MESSAGE, "Acorda vagabundo")
                 .putExtra(AlarmClock.EXTRA_HOUR,tpHorario.getCurrentHour() )
-                .putExtra(AlarmClock.EXTRA_MINUTES, tpHorario.getCurrentHour());
+                .putExtra(AlarmClock.EXTRA_MINUTES, tpHorario.getCurrentMinute());
+
 
         if (intent.resolveActivity(getPackageManager()) != null)
             startActivity(intent);

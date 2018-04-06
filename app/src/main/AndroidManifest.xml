@@ -19,6 +19,7 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".MensagemActivity" />
         <activity android:name=".AlarmeActivity"></activity>
-    </application>
 
+    </application>
+    <uses-permission android:name="com.android.alarm.permission.SET_ALARM"/>
 </manifest>
