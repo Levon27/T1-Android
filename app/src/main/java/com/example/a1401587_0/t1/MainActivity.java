@@ -38,7 +38,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
-    private void debug(String s){
+    @OnClick (R.id.btnMapa)
+    public void Mapa(){
+
+    }
+    public void debug(String s){
         Toast.makeText(getApplicationContext(),
                 s,
                 Toast.LENGTH_SHORT)
