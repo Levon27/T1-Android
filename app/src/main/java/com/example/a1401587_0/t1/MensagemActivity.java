@@ -14,6 +14,7 @@ import android.net.Uri;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnLongClick;
 
 public class MensagemActivity extends Activity {
     @BindView(R.id.btnContato) Button btnContato;
@@ -29,24 +30,36 @@ public class MensagemActivity extends Activity {
     @OnClick(R.id.btnContato)
     public void procuraContato(){
         Intent pickContactIntent = new Intent(Intent.ACTION_PICK, Uri.parse("content://contacts"));
-        pickContactIntent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE); // Show user only contacts w/ phone numbers
+        pickContactIntent.setType(ContactsContract.CommonDataKinds.Phone.CONTENT_TYPE);
         startActivityForResult(pickContactIntent, 1);
+    }
+
+    @OnLongClick(R.id.btnContato)
+    public boolean registraContato(){
+        return true;
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        String number;
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
-                Uri contactUri = data.getData();
+                Uri contactUri = data.getData(); //uri: endereço de memória onde esta o resultado da busca
                 String[] projection = {ContactsContract.CommonDataKinds.Phone.NUMBER};
                 Cursor cursor = getContentResolver().query(contactUri, projection, null, null, null);
                 cursor.moveToFirst();
                 int column = cursor.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-                String number = cursor.getString(column);
+                if (column == 0) {
+                    number = cursor.getString(column);
+                    etContato.setText(number);
+                    debug(number);
+                } else {
+                    debug("não conseguiu pegar num");
+                }
+            }
+        }
 
-                debug(number);
-        }
-        }
+
     }
     public void debug(String s){
         Toast.makeText(getApplicationContext(),
