@@ -2,6 +2,7 @@ package com.example.a1401587_0.t1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.nio.file.spi.FileSystemProvider;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
+import java.util.Random;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -60,7 +61,7 @@ public class MainActivity extends Activity {
 
     @OnClick(R.id.btnGoleta)
     public void goleta(){
-        
+
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, 1);
@@ -110,5 +111,14 @@ public class MainActivity extends Activity {
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
         return image;
+    }
+
+    @OnClick(R.id.btnFaustao)
+    public void faustao(){
+        int[] valores = {R.raw.churrasqueira_do_faustao,R.raw.faustao_errou,R.raw.faustao_errou2,R.raw.pegando_fogo_bicho};
+        int num= new Random().nextInt(valores.length);
+        MediaPlayer ring= MediaPlayer.create(MainActivity.this,valores[num]);
+
+        ring.start();
     }
 }
