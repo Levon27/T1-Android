@@ -103,9 +103,9 @@ public class MainActivity extends Activity {
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+                imageFileName,
+                ".jpg",
+                storageDir
         );
 
         // Save a file: path for use with ACTION_VIEW intents
@@ -120,5 +120,11 @@ public class MainActivity extends Activity {
         MediaPlayer ring= MediaPlayer.create(MainActivity.this,valores[num]);
 
         ring.start();
+    }
+
+    @OnClick(R.id.btnCrono)
+    public void cronometro(){
+        Intent intent = new Intent(this,CronometroActivity.class);
+        startActivity(intent);
     }
 }

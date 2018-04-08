@@ -37,12 +37,13 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="1"
+
              />
         <Button
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="1"
-            android:text="Captura Goleta"
+            android:text="Captura Foto"
             android:id="@+id/btnGoleta"
             />
     </LinearLayout>
@@ -69,6 +70,8 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="1"
+            android:text="Cronômetro"
+            android:id="@+id/btnCrono"
             />
         <Button
             android:layout_height="wrap_content"
