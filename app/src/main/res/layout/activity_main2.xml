@@ -37,7 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_weight="1"
-
+            android:text="Adiocionar evento"
+            android:id="@+id/btnEvento"
              />
         <Button
             android:layout_height="wrap_content"

@@ -81,8 +81,6 @@ public class MainActivity extends Activity {
                 this.sendBroadcast(mediaScanIntent);
             }
         }
-
-
     }
 
     @OnClick(R.id.btnTelefone)
@@ -91,12 +89,7 @@ public class MainActivity extends Activity {
         startActivity(intent);
 
     }
-    public void debug(String s){
-        Toast.makeText(getApplicationContext(),
-                s,
-                Toast.LENGTH_SHORT)
-                .show();
-    }
+
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -126,5 +119,19 @@ public class MainActivity extends Activity {
     public void cronometro(){
         Intent intent = new Intent(this,CronometroActivity.class);
         startActivity(intent);
+    }
+
+    @OnClick(R.id.btnEvento)
+    public void evento(){
+        Intent intent = new Intent(this,EventoActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void debug(String s){
+        Toast.makeText(getApplicationContext(),
+                s,
+                Toast.LENGTH_SHORT)
+                .show();
     }
 }
