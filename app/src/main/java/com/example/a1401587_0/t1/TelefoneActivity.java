@@ -46,6 +46,9 @@ public class TelefoneActivity extends Activity {
 
     @OnClick(R.id.btnLigar)
     public void ligar(){
+        String numero = etContato.getText().toString();
+        Intent intent = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:"+numero));
+        startActivity(intent);
         debug("ligou");
     }
 
