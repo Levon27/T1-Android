@@ -18,7 +18,9 @@ import butterknife.OnLongClick;
 
 public class MensagemActivity extends Activity {
     @BindView(R.id.btnContato) Button btnContato;
+    @BindView(R.id.btnEnviar) Button btnEnviar;
     @BindView(R.id.etContato) EditText etContato;
+    @BindView(R.id.etMsg) EditText etMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,4 +76,15 @@ public class MensagemActivity extends Activity {
                 Toast.LENGTH_SHORT)
                 .show();
     }
+
+    @OnClick(R.id.btnEnviar)
+    public void enviar(){
+        String number = etContato.getText().toString();  // The number on which you want to send SMS
+        String msg = etMsg.getText().toString();
+        Uri uri = Uri.parse("smsto:"+number);
+        Intent it = new Intent(Intent.ACTION_SENDTO, uri);
+        it.putExtra("sms_body", msg);
+        startActivity(it);
+    }
 }
+
