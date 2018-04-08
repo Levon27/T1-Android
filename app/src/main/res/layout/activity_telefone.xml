@@ -1,44 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.a1401587_0.t1.MensagemActivity"
+    tools:context="com.example.a1401587_0.t1.TelefoneActivity"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <EditText
-            android:id="@+id/etContato"
             android:layout_width="300dp"
-            android:layout_height="match_parent"
-            android:layout_marginStart="14dp"
-            android:layout_marginTop="12dp"
-            android:hint="Escolha um contato"
-
-            />
-
+            android:layout_height="wrap_content"
+            android:id="@+id/etContato"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btnContato"
-            android:drawableLeft="@drawable/contact2"
-        />
+            android:drawableEnd="@drawable/contact2"
+            android:id="@+id/btnContato"/>
     </LinearLayout>
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_gravity="fill_vertical"
-        android:hint="Digite sua mensagem aqui..."
-        android:id="@+id/etMsg"/>
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Enviar SMS"
-        android:id="@+id/btnEnviar"/>
+        android:drawableLeft="@android:drawable/sym_action_call"
+        android:text="Ligar"
+        android:textAlignment="center"
+        android:id="@+id/btnLigar"
+        />
+
+
 </LinearLayout>

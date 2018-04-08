@@ -52,6 +52,13 @@ public class MainActivity extends Activity {
     public void goleta(){
         //Intent intent = new Intent(this,);
     }
+
+    @OnClick(R.id.btnTelefone)
+    public void telefone(){
+        Intent intent = new Intent(this,TelefoneActivity.class);
+        startActivity(intent);
+
+    }
     public void debug(String s){
         Toast.makeText(getApplicationContext(),
                 s,

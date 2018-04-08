@@ -2,32 +2,31 @@ package com.example.a1401587_0.t1;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.provider.Telephony;
-import android.telephony.SmsMessage;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.database.Cursor;
-import android.provider.ContactsContract;
-import butterknife.BindView;
-import android.net.Uri;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnLongClick;
 
-public class MensagemActivity extends Activity {
+public class TelefoneActivity extends Activity {
     @BindView(R.id.btnContato) Button btnContato;
-    @BindView(R.id.btnEnviar) Button btnEnviar;
+
     @BindView(R.id.etContato) EditText etContato;
-    @BindView(R.id.etMsg) EditText etMsg;
+
+    @BindView(R.id.btnLigar) Button btnLigar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mensagem);
+        setContentView(R.layout.activity_telefone);
         ButterKnife.bind(this);
     }
 
@@ -45,7 +44,11 @@ public class MensagemActivity extends Activity {
         return true;
     }
 
-    @Override
+    @OnClick(R.id.btnLigar)
+    public void ligar(){
+        debug("ligou");
+    }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         String number;
         if (requestCode == 1) {
@@ -64,19 +67,7 @@ public class MensagemActivity extends Activity {
                 }
             }
         }
-
     }
-
-    @OnClick(R.id.btnEnviar)
-    public void enviar(){
-        String number = etContato.getText().toString();  // The number on which you want to send SMS
-        String msg = etMsg.getText().toString();
-        Uri uri = Uri.parse("smsto:"+number);
-        Intent it = new Intent(Intent.ACTION_SENDTO,uri);
-        it.putExtra("sms_body", msg);
-        startActivity(it);
-    }
-
 
 
     public void debug(String s){
@@ -92,6 +83,4 @@ public class MensagemActivity extends Activity {
                 Toast.LENGTH_SHORT)
                 .show();
     }
-
 }
-

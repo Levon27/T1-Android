@@ -24,7 +24,8 @@
         <activity android:name=".AlarmeActivity" />
         <activity android:name=".MapaActivity" />
         <activity android:name=".GoletaActivity" />
-        <activity android:name=".RegistroActivity"></activity>
+        <activity android:name=".RegistroActivity" />
+        <activity android:name=".TelefoneActivity"></activity>
     </application>
 
 </manifest>
