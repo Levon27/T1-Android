@@ -127,6 +127,11 @@ public class MainActivity extends Activity {
         startActivity(intent);
     }
 
+    @OnClick(R.id.btnAnotacao)
+    public void anotacao(){
+        Intent intent = new Intent (this,AnotacaoActivity.class);
+        startActivity(intent);
+    }
 
     public void debug(String s){
         Toast.makeText(getApplicationContext(),

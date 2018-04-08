@@ -30,22 +30,61 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Início:     "/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:hint="Início"
-            android:inputType="time"
-            android:id="@+id/etInicio"/>
+            android:hint="Hora"
+            android:id="@+id/etHoraInicio"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Minuto"
+            android:id="@+id/etMinInicio"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Segundo"
+            android:id="@+id/etSegInicio"/>
 
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Término:"/>
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:hint="Término"
-            android:inputType="time"
-            android:id="@+id/etTermino"/>
+            android:hint="Hora"
+            android:id="@+id/etHoraTerm"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Minuto"
+            android:id="@+id/etMinTerm"/>
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:hint="Segundo"
+            android:id="@+id/etSegTerm"/>
+
 
     </LinearLayout>
     <Button
