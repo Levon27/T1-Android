@@ -4,13 +4,23 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.widget.Button;
 import android.widget.Toast;
+import android.graphics.Bitmap;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.spi.FileSystemProvider;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class MainActivity extends Activity {
+    String mCurrentPhotoPath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +53,35 @@ public class MainActivity extends Activity {
             Intent intent = new Intent(Intent.ACTION_VIEW);
             intent.setData(Uri.parse("geo:47.6,-122.3?z=11"));
             if (intent.resolveActivity(getPackageManager()) != null) {
-                startActivity(intent);
+                startActivityForResult(intent, 1);
             }
 
     }
 
     @OnClick(R.id.btnGoleta)
     public void goleta(){
-        //Intent intent = new Intent(this,);
+        
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, 1);
+        }
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                debug("vai ficar sem nude");
+            }
+            if (photoFile != null) {
+                Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                File f = new File(mCurrentPhotoPath);
+                Uri contentUri = Uri.fromFile(f);
+                mediaScanIntent.setData(contentUri);
+                this.sendBroadcast(mediaScanIntent);
+            }
+        }
+
+
     }
 
     @OnClick(R.id.btnTelefone)
@@ -64,5 +95,20 @@ public class MainActivity extends Activity {
                 s,
                 Toast.LENGTH_SHORT)
                 .show();
+    }
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = image.getAbsolutePath();
+        return image;
     }
 }
